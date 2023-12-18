@@ -20,7 +20,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 from FitnessProject.views import SignInView, SignUpView, CategoryListCreateView, CategoryRetrieveUpdateDestroyView, \
-    FitnessListCreateView, FitnessRetrieveUpdateDestroyView
+    FitnessListCreateView, FitnessRetrieveUpdateDestroyView, ProfileRetrieveUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -33,6 +33,8 @@ urlpatterns = [
 
     path('fitness/', FitnessListCreateView.as_view(), name='fitness-list-create'),
     path('fitness/<int:pk>/', FitnessRetrieveUpdateDestroyView.as_view(), name='fitness-retrieve-update-destroy'),
+
+    path('profile/', ProfileRetrieveUpdateView.as_view(), name='profile-retrieve-update'),
 ]
 
 if settings.DEBUG:

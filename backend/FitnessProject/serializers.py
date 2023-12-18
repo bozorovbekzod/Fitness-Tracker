@@ -1,4 +1,4 @@
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate, get_user_model
 from rest_framework import serializers
 
 from FitnessProject.models import User, Category, Fitness
@@ -67,3 +67,9 @@ class FitnessSerializer(serializers.ModelSerializer):
     class Meta:
         model = Fitness
         fields = ('id', 'image', 'video', 'description', 'set', 'reps', 'title', 'category')
+
+
+class ProfileUpdateSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = get_user_model()
+        fields = ['username', 'email']
